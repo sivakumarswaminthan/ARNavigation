@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.sivakumar.visionar"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation ('com.mapbox.mapboxsdk:mapbox-android-sdk:8.4.0@aar'){
+        transitive=true
+
+    }
+    implementation "com.mapbox.mapboxsdk:mapbox-android-telemetry:4.6.0"
+
+    implementation ('com.mapbox.mapboxsdk:mapbox-android-services:2.2.9@aar'){
+        transitive=true
+    }
+
+    /*
+    implementation('com.mapbox.mapboxsdk:mapbox-android-sdk:8.1.0') {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+    }
+    */
+    implementation("com.mapbox.mapboxsdk:mapbox-android-accounts:0.3.0") {
+        force = true
+    }
+
+    api "com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.41.0"
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.41.0'
+
+    implementation "com.mapbox.mapboxsdk:mapbox-android-navigation:0.41.0"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-core:0.2.1"
+
+    implementation files('C:\\Sivakumar\\Android Projects\\mapbox-android-vision-release.aar')
+    implementation files('C:\\Sivakumar\\Android Projects\\mapbox-android-vision-ar-release.aar')
+    implementation files('C:\\Sivakumar\\Android Projects\\mapbox-android-vision-safety-release.aar')
+}
